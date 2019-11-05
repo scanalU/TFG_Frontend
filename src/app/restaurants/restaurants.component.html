@@ -1,0 +1,25 @@
+<h2>My Restaurants</h2>
+
+<div>
+    <label>Rest name:
+      <input #restName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(restName.value); restName.value=''">
+      add
+    </button>
+</div>
+
+<ul class="rests">
+  <li *ngFor="let rest of rests">
+    <a routerLink="/detail/{{rest.id}}">
+    <span class="badge">{{rest.id}}</span> {{rest.name}}
+    </a>
+    <button class="delete" title="delete rest"
+  (click)="delete(rest)">x</button>
+  </li>
+</ul>
+
+
+
+

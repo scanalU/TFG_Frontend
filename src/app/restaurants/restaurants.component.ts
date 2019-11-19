@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Rest } from '../restaurant';
 import { RestaurantService } from '../restaurant.service';
+import { bodyParser }  from 'body-parser'
 
 
 @Component({
@@ -12,6 +13,7 @@ export class RestaurantsComponent implements OnInit {
   rests: Rest[];
 
   constructor(private restService: RestaurantService) { }
+  
 
   ngOnInit() {
     this.getRests();
@@ -35,5 +37,6 @@ export class RestaurantsComponent implements OnInit {
     this.rests = this.rests.filter(h => h !== rest);
     this.restService.deleteRest(rest).subscribe();
   }
+
 
 }

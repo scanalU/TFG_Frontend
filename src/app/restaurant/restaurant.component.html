@@ -1,0 +1,26 @@
+<div *ngIf="rest">
+  <div class="card">
+    <img src={{rest.photoUrl}} alt="Denim Jeans" style="width:100%">
+    <h1>{{rest.restName}}</h1>
+    <p class="price">Price Level: {{rest.priceLevel}}</p>
+    <p class="price">Rating: {{rest.rating}}</p>
+    <p>
+      <p>Google Place ID: {{ rest.placeID }}</p>
+      <p>Phone Number: {{ rest.phoneNumber }}</p>
+      <p>Address: {{ rest.address }}</p>
+      <p># Google Reviews {{ rest.numReviews }}</p>
+      <p>Timetable: </p>
+      <p>    Monday: {{ rest.timeOpenMon }}</p>
+      <p>    Tuesday: {{ rest.timeOpenTue }}</p>
+      <p>    Wednesday: {{ rest.timeOpenWed }}</p>
+      <p>    Thursday:  {{ rest.timeOpenThu }}</p>
+      <p>    Friday: {{ rest.timeOpenFri }}</p>
+      <p>    Saturday: {{ rest.timeOpenSat }}</p>
+      <p>    Sunday: {{ rest.timeOpenSun }}</p>
+      <p>Google Tags: {{ rest.typeGoogleAPI0 }}, {{ rest.typeGoogleAPI1 }}, {{ rest.typeGoogleAPI2 }}, {{ rest.typeGoogleAPI3 }}, {{ rest.typeGoogleAPI4 }}, {{ rest.typeGoogleAPI5 }}</p>
+    <p><button (click)="goToUrl()"
+      >Search in Google Maps</button></p>
+  </div>
+</div>
+
+

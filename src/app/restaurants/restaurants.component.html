@@ -8,15 +8,19 @@
     <button (click)="add(restName.value); restName.value=''; ">
       add
     </button>
+
+    <button (click)="getRestsFromDB();">
+      Get Restaurants
+    </button>
 </div>
 
-<ul class="rests">
+<ul>
   <li *ngFor="let rest of rests">
-    <a routerLink="/detail/{{rest.id}}">
-    <span class="badge">{{rest.id}}</span> {{rest.name}}
+    <a routerLink="/restaurant/{{rest.restID}}">
+    <span class="badge">{{rest.restName}}</span>
     </a>
-    <button class="delete" title="delete rest"
-  (click)="delete(rest)">x</button>
+    <!-- <button class="delete" title="delete rest"
+  (click)="delete(rest)">x</button> -->
   </li>
 </ul>
 

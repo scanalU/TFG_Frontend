@@ -11,27 +11,31 @@ import { bodyParser }  from 'body-parser'
 })
 export class RestaurantsComponent implements OnInit {
   rests: Rest[];
+  rest: Rest;
 
   constructor(private restService: RestaurantService) { }
   
 
   ngOnInit() {
-    this.getRests();
+    this.getRestsFromDB();
   }
 
-  getRests(): void {
-    this.restService.getRests()
-    .subscribe(rests => this.rests = rests);
+  getRestsFromDB(){
+    this.restService.getRestsFromDB()
+    .subscribe(rests => {
+      console.log(rests);
+      this.rests = rests;
+    }) 
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.restService.addRest({ name } as Rest)
-      .subscribe(rest => {
-        this.rests.push(rest);
-      });
-  }
+  // add(name: string): void {
+  //   name = name.trim();
+  //   if (!name) { return; }
+  //   this.restService.addRest({ name } as Rest)
+  //     .subscribe(rest => {
+  //       this.rests.push(rest);
+  //     });
+  // }
 
   delete(rest: Rest): void {
     this.rests = this.rests.filter(h => h !== rest);

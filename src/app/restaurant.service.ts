@@ -10,7 +10,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class RestaurantService {
 
-  private restsUrl = 'api/restaurants';  // URL to web api
+  private restsUrl = 'https://localhost:44353/api/restaurants';  // URL to web api
+  private restaurantUrl = 'https://localhost:44353/api/restaurant';  // URL to web api
+
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,20 +25,20 @@ export class RestaurantService {
 
     
     
-  getRests(): Observable<Rest[]> {
-    return this.http.get<Rest[]>(this.restsUrl)
-    .pipe(
-      tap(_ => this.log('fetched restaurants')),
-      catchError(this.handleError<Rest[]>('getRests', []))
-    )
+  // getRests(): Observable<Rest[]> {
+  //   return this.http.get<Rest[]>(this.restsUrl)
+  //   .pipe(
+  //     tap(_ => this.log('fetched restaurants')),
+  //     catchError(this.handleError<Rest[]>('getRests', []))
+  //   )
+  // }
+
+  getRestsFromDB(): Observable<Rest[]> {
+    return this.http.get<Rest[]>(this.restsUrl);
   }
 
   getRest(id: number): Observable<Rest> {
-    const url = `${this.restsUrl}/${id}`;
-    return this.http.get<Rest>(url).pipe(
-      tap(_ => this.log(`fetched rest id=${id}`)),
-      catchError(this.handleError<Rest>(`getRest id=${id}`))
-    );
+    return this.http.get<Rest>(`${this.restaurantUrl}/${id}`);
   }
 
   /** GET rest by id. Return `undefined` when id not found */
@@ -66,13 +68,13 @@ export class RestaurantService {
 
   addRest (rest: Rest): Observable<Rest> {
     return this.http.post<Rest>(this.restsUrl, rest, this.httpOptions).pipe(
-      tap((newRest: Rest) => this.log(`added rest w/ id=${newRest.id}`)),
+      tap((newRest: Rest) => this.log(`added rest w/ id=${newRest.restID}`)),
       catchError(this.handleError<Rest>('addRest'))
     );
   }
 
   deleteRest (rest: Rest | number): Observable<Rest> {
-    const id = typeof rest === 'number' ? rest : rest.id;
+    const id = typeof rest === 'number' ? rest : rest.restID;
     const url = `${this.restsUrl}/${id}`;
   
     return this.http.delete<Rest>(url, this.httpOptions).pipe(
@@ -83,7 +85,7 @@ export class RestaurantService {
 
   updateRest (rest: Rest): Observable<any> {
     return this.http.put(this.restsUrl, rest, this.httpOptions).pipe(
-      tap(_ => this.log(`updated rest id=${rest.id}`)),
+      tap(_ => this.log(`updated rest id=${rest.restID}`)),
       catchError(this.handleError<any>('updateRest'))
     );
   }

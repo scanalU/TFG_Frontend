@@ -10,7 +10,7 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
-import { RestDetailComponent } from './rest-detail/rest-detail.component';
+import { RestaurantComponent } from './restaurant/restaurant.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RestSearchComponent } from './rest-search/rest-search.component';
@@ -21,7 +21,7 @@ import { InputUserDataFormComponent } from './input-user-data-form/input-user-da
   declarations: [
     AppComponent,
     RestaurantsComponent,
-    RestDetailComponent,
+    RestaurantComponent,
     MessagesComponent,
     DashboardComponent,
     RestSearchComponent,

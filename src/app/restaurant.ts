@@ -4,6 +4,7 @@ export class Rest {
         placeID : string;
         phoneNumber : string;
         address : string;
+        location: string;
         rating : string;
         numReviews : string;
         priceLevel : string;
@@ -21,7 +22,7 @@ export class Rest {
         typeGoogleAPI4 : string;
         typeGoogleAPI5 : string;
         photoUrl : string;
-        restUrl : string
+        googleRestUrl : string
 
         constructor(props){
           this.restID = props.restID;
@@ -29,6 +30,7 @@ export class Rest {
           this.placeID = props.placeID;
           this.phoneNumber = props.phoneNumber;
           this.address = props.address;
+          this.location = props.location;
           this.rating = props.rating;
           this.numReviews = props.numReviews;  
           this.priceLevel = props.priceLevel;
@@ -46,7 +48,7 @@ export class Rest {
           this.typeGoogleAPI4 = props.typeGoogleAPI4;
           this.typeGoogleAPI5 = props.typeGoogleAPI5;
           this.photoUrl = props.photoUrl;
-          this.restUrl = props.restUrl;
+          this.googleRestUrl = props.googleRestUrl;
         }
 }
 

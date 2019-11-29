@@ -60,17 +60,14 @@ export class RestaurantService {
       // if not search term, return empty rest array.
       return of([]);
     }
-    return this.http.get<Rest[]>(`${this.restsUrl}/?name=${term}`).pipe(
+    return this.http.get<Rest[]>(`${this.restsUrl}/?rest.restName=${term}`).pipe(
       tap(_ => this.log(`found rests matching "${term}"`)),
       catchError(this.handleError<Rest[]>('searchRests', []))
     );
   }
 
-  addRest (rest: Rest): Observable<Rest> {
-    return this.http.post<Rest>(this.restsUrl, rest, this.httpOptions).pipe(
-      tap((newRest: Rest) => this.log(`added rest w/ id=${newRest.restID}`)),
-      catchError(this.handleError<Rest>('addRest'))
-    );
+  addRest (name: string): Observable<Rest> {
+    return this.http.post<Rest>(this.restsUrl, name, this.httpOptions)
   }
 
   deleteRest (rest: Rest | number): Observable<Rest> {

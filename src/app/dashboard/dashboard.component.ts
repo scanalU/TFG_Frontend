@@ -17,21 +17,19 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     //this.getRestaurants();
-    this.getRests();
+    this.getRestsFromDB();
   }
 
   // getRestaurants(): void {
   //   this.restService.getRests()
   //     .subscribe(rests => this.rests = rests.slice(1, 5));
   // }
-  getRests(): void{
-    
-    this.http.get("https://localhost:44353/api/values").subscribe((res) => {
-      console.log(res)
-    }, function(err){
-      console.log('error', err);
-    });
-
+  getRestsFromDB(){
+    this.restService.getRestsFromDB()
+    .subscribe(rests => {
+      console.log(rests);
+      this.rests = rests;
+    }) 
   }
 
 }

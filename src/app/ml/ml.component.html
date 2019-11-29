@@ -1,0 +1,13 @@
+<form>
+        <div>
+            <label>Restaurant name:
+                <input id="restName" type="text" name="restName" ngModel>
+            </label>
+            <!-- (click) passes input value to add() and then clears the input -->
+
+        </div>
+    
+        <input type="checkbox"  id="checkComputerVision" name="checkComputerVision" checked> I want to use Azure Computer Vision<br>
+        <input type="checkbox" id="checkCustomVision" name="checkCustomVision" checked> I want to use Azure Custom Vision<br>
+        <input id="submit" type="submit" value="Submit" (click)="addRest()">
+</form>

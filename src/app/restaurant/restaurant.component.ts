@@ -7,8 +7,6 @@ import { RestaurantService }  from '../restaurant.service';
 import { Rest } from '../restaurant'
 import { DOCUMENT } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
@@ -16,7 +14,13 @@ import { DOCUMENT } from '@angular/common';
 })
 export class RestaurantComponent implements OnInit {
   rest: Rest;
-
+  private isType0Null: Boolean;
+  private isType1Null: Boolean;
+  private isType2Null: Boolean;  
+  private isType3Null: Boolean;
+  private isType4Null: Boolean;
+  private isType5Null: Boolean;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +39,23 @@ export class RestaurantComponent implements OnInit {
     .subscribe(rest => {
       this.rest = new Rest(rest);
       console.log('this.rest', this.rest);
-      this.rest.restUrl = "https://www.google.com/maps/place/?q=place_id:" + this.rest.placeID;
+      this.isTypeNull();
+      this.rest.googleRestUrl = "https://www.google.com/maps/place/?q=place_id:" + this.rest.placeID;
     });
+  }
+  
+  isTypeNull(){
+
+    this.isType0Null = this.rest.typeGoogleAPI0 === 'NULL';
+    this.isType1Null = this.rest.typeGoogleAPI1 === 'NULL';
+    this.isType2Null = this.rest.typeGoogleAPI2 === 'NULL';
+    this.isType3Null = this.rest.typeGoogleAPI3 === 'NULL';
+    this.isType4Null = this.rest.typeGoogleAPI4 === 'NULL';
+    this.isType5Null = this.rest.typeGoogleAPI5 === 'NULL';
   }
 
   goToUrl(): void {
-    window.open(this.rest.restUrl, "_blank");  }
+    window.open(this.rest.googleRestUrl, "_blank");  }
 
   save(): void {
     this.restService.updateRest(this.rest)

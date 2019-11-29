@@ -11,13 +11,19 @@ import { bodyParser }  from 'body-parser'
 })
 export class RestaurantsComponent implements OnInit {
   rests: Rest[];
-  rest: Rest;
+  selectedRest: Rest;
+
 
   constructor(private restService: RestaurantService) { }
   
 
   ngOnInit() {
     this.getRestsFromDB();
+  }
+
+  onSelect(rest: Rest): void {
+    this.selectedRest = rest;
+    window.open("https://localhost:4200/restaurant/" + rest.restID, "_blank");
   }
 
   getRestsFromDB(){

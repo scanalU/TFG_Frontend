@@ -2,22 +2,32 @@
   <div class="card">
     <img src={{rest.photoUrl}} alt="Denim Jeans" style="width:100%">
     <h1>{{rest.restName}}</h1>
+    <p class="price">Location: {{rest.location}}</p>
     <p class="price">Price Level: {{rest.priceLevel}}</p>
     <p class="price">Rating: {{rest.rating}}</p>
     <p>
-      <p>Google Place ID: {{ rest.placeID }}</p>
-      <p>Phone Number: {{ rest.phoneNumber }}</p>
-      <p>Address: {{ rest.address }}</p>
-      <p># Google Reviews {{ rest.numReviews }}</p>
-      <p>Timetable: </p>
-      <p>    Monday: {{ rest.timeOpenMon }}</p>
-      <p>    Tuesday: {{ rest.timeOpenTue }}</p>
-      <p>    Wednesday: {{ rest.timeOpenWed }}</p>
-      <p>    Thursday:  {{ rest.timeOpenThu }}</p>
-      <p>    Friday: {{ rest.timeOpenFri }}</p>
-      <p>    Saturday: {{ rest.timeOpenSat }}</p>
-      <p>    Sunday: {{ rest.timeOpenSun }}</p>
-      <p>Google Tags: {{ rest.typeGoogleAPI0 }}, {{ rest.typeGoogleAPI1 }}, {{ rest.typeGoogleAPI2 }}, {{ rest.typeGoogleAPI3 }}, {{ rest.typeGoogleAPI4 }}, {{ rest.typeGoogleAPI5 }}</p>
+      <p><b>Google Place ID: </b> {{ rest.placeID }}</p>
+      <p><b>Phone Number: </b> {{ rest.phoneNumber }}</p>
+      <p><b>Address: </b> {{ rest.address }}</p>
+      <p><b>Number of Google Reviews: </b> {{ rest.numReviews }}</p>
+      <p><b>Timetable: </b></p>
+      <p><b>    Monday: </b> {{ rest.timeOpenMon }}</p>
+      <p><b>    Tuesday: </b> {{ rest.timeOpenTue }}</p>
+      <p><b>    Wednesday: </b> {{ rest.timeOpenWed }}</p>
+      <p><b>    Thursday: </b>  {{ rest.timeOpenThu }}</p>
+      <p><b>    Friday: </b> {{ rest.timeOpenFri }}</p>
+      <p><b>    Saturday: </b> {{ rest.timeOpenSat }}</p>
+      <p><b>    Sunday: </b> {{ rest.timeOpenSun }}</p>
+      <div style="overflow: hidden;">
+          <p><b>Google Tags: </b></p> 
+
+          <p *ngIf="!isType0Null" style="float: left;"> {{ rest.typeGoogleAPI0 }} </p>
+          <p *ngIf="!isType1Null" style="float: left;">,  {{ rest.typeGoogleAPI1 }}</p>
+          <p *ngIf="!isType2Null" style="float: left;">,  {{ rest.typeGoogleAPI2 }} </p>
+          <p *ngIf="!isType3Null" style="float: left;">,  {{ rest.typeGoogleAPI3 }} </p>
+          <p *ngIf="!isType4Null" style="float: left;">,  {{ rest.typeGoogleAPI4 }} </p>
+          <p *ngIf="!isType5Null" style="float: left;">,  {{ rest.typeGoogleAPI5 }}</p>
+      </div> 
     <p><button (click)="goToUrl()"
       >Search in Google Maps</button></p>
   </div>

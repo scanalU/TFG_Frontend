@@ -24,7 +24,6 @@ export class RestaurantService {
     ) { }
 
     
-    
   // getRests(): Observable<Rest[]> {
   //   return this.http.get<Rest[]>(this.restsUrl)
   //   .pipe(
@@ -40,6 +39,8 @@ export class RestaurantService {
   getRest(id: number): Observable<Rest> {
     return this.http.get<Rest>(`${this.restaurantUrl}/${id}`);
   }
+
+
 
   /** GET rest by id. Return `undefined` when id not found */
   getRestNo404<Data>(id: number): Observable<Rest> {
@@ -60,7 +61,7 @@ export class RestaurantService {
       // if not search term, return empty rest array.
       return of([]);
     }
-    return this.http.get<Rest[]>(`${this.restsUrl}/?rest.restName=${term}`).pipe(
+    return this.http.get<Rest[]>(`${this.restsUrl}/?restName=${term}`).pipe(
       tap(_ => this.log(`found rests matching "${term}"`)),
       catchError(this.handleError<Rest[]>('searchRests', []))
     );

@@ -14,9 +14,10 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RestSearchComponent } from './rest-search/rest-search.component';
-import { InputUserDataFormComponent } from './input-user-data-form/input-user-data-form.component';
+import { UserFormComponent } from './user-form/user-form.component';
 import { CommonModule } from '@angular/common';
 import { MLComponent } from './ml/ml.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 @NgModule({
@@ -27,8 +28,8 @@ import { MLComponent } from './ml/ml.component';
     MessagesComponent,
     DashboardComponent,
     RestSearchComponent,
-    InputUserDataFormComponent,
     MLComponent,
+    UserFormComponent,
     
   ],
   imports: [
@@ -36,7 +37,9 @@ import { MLComponent } from './ml/ml.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    GoogleChartsModule.forRoot(),
+
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }
     // )

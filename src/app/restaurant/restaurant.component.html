@@ -1,36 +1,254 @@
-<div *ngIf="rest">
-  <div class="card">
-    <img src={{rest.photoUrl}} alt="Denim Jeans" style="width:100%">
-    <h1>{{rest.restName}}</h1>
-    <p class="price">Location: {{rest.location}}</p>
-    <p class="price">Price Level: {{rest.priceLevel}}</p>
-    <p class="price">Rating: {{rest.rating}}</p>
-    <p>
-      <p><b>Google Place ID: </b> {{ rest.placeID }}</p>
-      <p><b>Phone Number: </b> {{ rest.phoneNumber }}</p>
-      <p><b>Address: </b> {{ rest.address }}</p>
-      <p><b>Number of Google Reviews: </b> {{ rest.numReviews }}</p>
-      <p><b>Timetable: </b></p>
-      <p><b>    Monday: </b> {{ rest.timeOpenMon }}</p>
-      <p><b>    Tuesday: </b> {{ rest.timeOpenTue }}</p>
-      <p><b>    Wednesday: </b> {{ rest.timeOpenWed }}</p>
-      <p><b>    Thursday: </b>  {{ rest.timeOpenThu }}</p>
-      <p><b>    Friday: </b> {{ rest.timeOpenFri }}</p>
-      <p><b>    Saturday: </b> {{ rest.timeOpenSat }}</p>
-      <p><b>    Sunday: </b> {{ rest.timeOpenSun }}</p>
-      <div style="overflow: hidden;">
-          <p><b>Google Tags: </b></p> 
 
-          <p *ngIf="!isType0Null" style="float: left;"> {{ rest.typeGoogleAPI0 }} </p>
-          <p *ngIf="!isType1Null" style="float: left;">,  {{ rest.typeGoogleAPI1 }}</p>
-          <p *ngIf="!isType2Null" style="float: left;">,  {{ rest.typeGoogleAPI2 }} </p>
-          <p *ngIf="!isType3Null" style="float: left;">,  {{ rest.typeGoogleAPI3 }} </p>
-          <p *ngIf="!isType4Null" style="float: left;">,  {{ rest.typeGoogleAPI4 }} </p>
-          <p *ngIf="!isType5Null" style="float: left;">,  {{ rest.typeGoogleAPI5 }}</p>
-      </div> 
-    <p><button (click)="goToUrl()"
-      >Search in Google Maps</button></p>
+
+<div *ngIf="rest" class="card">
+  <table>
+    <tr>
+      <div class="row" id="row1" style="margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[0]">
+              <img  class="demo cursor" [src]="urls[0]" onError="this.src='assets/noimage.png'" style="width:100%" >
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[1]">
+              <img  class="demo cursor" [src]="urls[1]" onError="this.src='assets/noimage.png'" style="width:100%" >
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[2]">
+              <img  class="demo cursor" [src]="urls[2]" onError="this.src='assets/noimage.png'" style="width:100%" >
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div class="row" id="row2" style="margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[3]">
+              <img  class="demo cursor" [src]="urls[3]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[4]">
+              <img  class="demo cursor" [src]="urls[4]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[5]">
+              <img  class="demo cursor" [src]="urls[5]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div id="more" class="row" style="display: none; margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[6]">
+              <img  class="demo cursor" [src]="urls[6]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[7]">
+              <img  class="demo cursor" [src]="urls[7]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[8]">
+              <img  class="demo cursor" [src]="urls[8]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div id="more1" class="row" style="display: none; margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[9]">
+              <img  class="demo cursor" [src]="urls[9]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[10]">
+              <img  class="demo cursor" [src]="urls[10]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[11]">
+              <img  class="demo cursor" [src]="urls[11]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div id="more2" class="row" style="display: none; margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[12]">
+              <img  class="demo cursor" [src]="urls[12]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[13]">
+              <img  class="demo cursor" [src]="urls[13]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[14]">
+              <img  class="demo cursor" [src]="urls[14]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div id="more3" class="row" style="display: none; margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[15]">
+              <img  class="demo cursor" [src]="urls[15]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[16]">
+              <img  class="demo cursor" [src]="urls[16]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[17]">
+              <img  class="demo cursor" [src]="urls[17]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+    <tr>
+      <div id="more4" class="row" style="display: none; margin:0 !important">
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[18]">
+              <img  class="demo cursor" [src]="urls[18]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[19]">
+              <img  class="demo cursor" [src]="urls[19]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+        <th>
+          <div class="column">
+            <a target="_blank" [href]="urls[20]">
+              <img  class="demo cursor" [src]="urls[20]" onError="this.src='assets/noimage.png'" style="width:100%">
+            </a>
+          </div>
+        </th>
+      </div>
+    </tr>
+  </table>
+
+
+
+
+  <br>
+    <div>
+      <button (click)="change1()" (click)="moreSome" id="myBtnSome">1</button>
+      <button (click)="change2()" (click)="moreSome" id="myBtnSome1">2</button>
+      <button (click)="change3()" (click)="moreSome" id="myBtnSome2">3</button>
+      <button (click)="changeToAll()" (click)="moreSome" id="myBtnAll">Ver todas las imágenes ({{this.j}})</button>
+    </div>
+
+      
+  <br>
+  <div>
+      <dl>
+        <h1>{{rest.restName}}</h1>
+        <dd> <p><b>Localidad:  </b> {{rest.location}}</dd>
+        <dd> <p><b>Nivel de precio:  </b>{{rest.priceLevel}}</dd>
+        <dd> <p><b>Clasificación: </b>{{rest.rating}}/5 </dd>
+        <dd> <p><b>Descripción: </b></p></dd>
+        <p>{{rest.description}}</p>
+        <dd><p><b>Google Place ID: </b> {{ rest.placeID }}</p></dd>
+        <dd><p><b>Teléfono: </b> {{ rest.phoneNumber }}</p></dd>
+        <dd><p><b>Dirección: </b> {{ rest.address }}</p></dd>
+        <dd><p><b>Número de reseñas en Google: </b> {{ rest.numReviews }}</p></dd>
+        <dd><p><b>Horario: </b></p></dd>
+        <dd><p><b>&emsp;Lunes: </b> {{ rest.timeOpenMon }}</p></dd>
+        <dd><p><b>&emsp;Martes: </b> {{ rest.timeOpenTue }}</p></dd>
+        <dd><p><b>&emsp;Miércoles: </b> {{ rest.timeOpenWed }}</p></dd>
+        <dd><p><b>&emsp;Jueves: </b>  {{ rest.timeOpenThu }}</p></dd>
+        <dd><p><b>&emsp;Viernes: </b> {{ rest.timeOpenFri }}</p></dd>
+        <dd><p><b>&emsp;Sábado: </b> {{ rest.timeOpenSat }}</p></dd>
+        <dd><p><b>&emsp;Domingo: </b> {{ rest.timeOpenSun }}</p></dd>
+      </dl>
+
+      <div>
+          <p><b>Tipo de establecimiento (Google): </b></p>
+          <span *ngIf=rest.typeGoogleAPI0>   {{ rest.typeGoogleAPI0 }}</span>
+          <span *ngIf=rest.typeGoogleAPI1>, {{ rest.typeGoogleAPI1 }}</span>
+          <span *ngIf=rest.typeGoogleAPI2>, {{ rest.typeGoogleAPI2 }}</span>
+          <span *ngIf=rest.typeGoogleAPI3>, {{ rest.typeGoogleAPI3 }}</span>
+          <span *ngIf=rest.typeGoogleAPI4>, {{ rest.typeGoogleAPI4 }}</span>
+          <span *ngIf=rest.typeGoogleAPI5>, {{ rest.typeGoogleAPI5 }}</span>
+      </div>
+
+      <div>
+        <br>
+        <p><b>Tags de Google: </b></p>
+          <span *ngIf=rest.tag0>  {{ rest.tag0 }}</span>
+          <span *ngIf=rest.tag1>, {{ rest.tag1 }}</span>
+          <span *ngIf=rest.tag2>, {{ rest.tag2 }}</span>
+          <span *ngIf=rest.tag3>, {{ rest.tag3 }}</span>
+          <span *ngIf=rest.tag4>, {{ rest.tag4 }}</span>
+          <span *ngIf=rest.tag5>, {{ rest.tag5 }}</span>
+          <span *ngIf=rest.tag6>, {{ rest.tag6 }}</span>
+          <span *ngIf=rest.tag7>, {{ rest.tag7 }}</span>
+          <span *ngIf=rest.tag8>, {{ rest.tag8 }}</span>
+          <span *ngIf=rest.tag9>,{{ rest.tag9 }}</span>
+      </div>
+
+      <br>
+      <p><button id="btnUrl"(click)="goToUrl()"
+        >Buscar en Google Maps</button></p>
   </div>
+
 </div>
+
+
+
+
+    
 
 

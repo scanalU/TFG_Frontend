@@ -1,13 +1,158 @@
-<form>
-        <div>
-            <label>Restaurant name:
-                <input id="restName" type="text" name="restName" ngModel>
-            </label>
-            <!-- (click) passes input value to add() and then clears the input -->
+<html>
 
-        </div>
+  <head>
+
+  </head>
+
+  <!-- <script>
+    // function terrace()
+    // {
+    //     var terraceGoogle = mlRes.hasTerraceGoogle;
+    //     var terraceML = mlRes.hasTerraceML;
+
+    //     if(terraceGoogle == 1){
+    //     mlRes.hasTerraceGoogle = "Yes";
+    //     }
+    //     else if (terraceGoogle == 0){
+    //     mlRes.hasTerraceGoogle = "No";
+    //     }
+    //     else
+    //         mlRes.hasTerraceGoogle = null;
+
+    //     if(terraceML == 1){
+    //     mlRes.hasTerraceML = "Yes";
+    //     }
+    //     else if (hasTerraceML == 0){
+    //     mlRes.hasTerraceML = "No";
+    //     }
+    //     else
+    //         mlRes.hasTerraceML = null;
+    // }
+</script> -->
+<form>
+    <div>
+
+        <!-- (click) passes input value to add() and then clears the input -->
+
+    </div>
+
+    <div id="finder1">
+      <label>Restaurant name:
+        <input id="restName1" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision1" name="checkComputerVision1" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision1" name="checkCustomVision1" checked> I want to use Azure Custom Vision<br>
+      <input id="submit1" type="submit" value="Submit" (click)="addRest1()">
+      <button id="myBtn1">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder2">
+      <label>Restaurant name:
+        <input id="restName2" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision2" name="checkComputerVision2" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision2" name="checkCustomVision2" checked> I want to use Azure Custom Vision<br>
+      <input id="submit2" type="submit" value="Submit" (click)="addRest2()">
+      <button id="myBtn2">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder3">
+      <label>Restaurant name:
+        <input id="restName3" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision3" name="checkComputerVision3" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision3" name="checkCustomVision3" checked> I want to use Azure Custom Vision<br>
+      <input id="submit3" type="submit" value="Submit" (click)="addRest3()">
+      <button id="myBtn3">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder4">
+      <label>Restaurant name:
+        <input id="restName4" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision4" name="checkComputerVision4" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision4" name="checkCustomVision4" checked> I want to use Azure Custom Vision<br>
+      <input id="submit4" type="submit" value="Submit" (click)="addRest4()">
+      <button id="myBtn4">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder5">
+      <label>Restaurant name:
+        <input id="restName5" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision5" name="checkComputerVision5" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision5" name="checkCustomVision5" checked> I want to use Azure Custom Vision<br>
+      <input id="submit5" type="submit" value="Submit" (click)="addRest5()">
+      <button id="myBtn5">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder6">
+      <label>Restaurant name:
+        <input id="restName6" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision6" name="checkComputerVision6" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision6" name="checkCustomVision6" checked> I want to use Azure Custom Vision<br>
+      <input id="submit6" type="submit" value="Submit" (click)="addRest6()">
+      <button id="myBtn6">Show 1 more finder</button>
+
+    </div>
+
+    <div id="finder7">
+      <label>Restaurant name:
+        <input id="restName7" type="text" name="restName" ngModel>
+    </label>
+      <input type="checkbox"  id="checkComputerVision7" name="checkComputerVision7" checked> I want to use Azure Computer Vision<br>
+      <input type="checkbox" id="checkCustomVision7" name="checkCustomVision7" checked> I want to use Azure Custom Vision<br>
+      <input id="submit7" type="submit" value="Submit" (click)="addRest7()">
+      <button id="myBtn7">Show 1 more finder</button>
+
+    </div>
     
-        <input type="checkbox"  id="checkComputerVision" name="checkComputerVision" checked> I want to use Azure Computer Vision<br>
-        <input type="checkbox" id="checkCustomVision" name="checkCustomVision" checked> I want to use Azure Custom Vision<br>
-        <input id="submit" type="submit" value="Submit" (click)="addRest()">
+
 </form>
+<body>
+<div *ngIf="mlRes">
+
+    <div class="card">
+
+      <p>Total Classical Score: {{truncClassical}}</p>
+      <p>Total Fast Food Score: {{truncFastFood}}</p>
+      <p>Total Premium Score: {{truncPremium}}</p>
+      <p>Max Classical Score: {{truncMaxClassical}}</p>
+      <p>Max Fast Food Score: {{truncMaxFastFood}}</p>
+      <p>Max Premium Score: {{truncMaxPremium}}</p>
+      <p>Has Terrace? (From Custom Vision): {{hasTerraceML}}</p>
+      <p>Has Terrace? (From Google): {{hasTerraceGoogle}}</p>
+
+
+
+    </div>
+</div>  
+<div *ngIf="dataChart" id="chart_div">
+
+
+<google-chart *ngIf="dataChart" #chart
+   [title]="title"
+   [type]="type"
+   [data]="dataChart"
+   [columnNames]="columnNames"
+   [options]="options"
+   [width]="width"
+   [height]="height">
+</google-chart>
+
+<!-- myData = [
+  ['Total Classical Score', mlRes.totalClassical],
+  ['Total Fast Food Score', mlRes.totalFastfood],
+  ['Total Premium Score', mlRes.totalPremium],
+]; -->
+</div>
+</body>
+
+</html>
+

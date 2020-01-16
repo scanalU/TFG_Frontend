@@ -2,7 +2,7 @@
 
 <app-rest-search></app-rest-search>
 
-<div class="grid grid-pad">
+<div id='myDiv' class="grid grid-pad">
 <a *ngFor="let rest of rests" class="col-1-4"
     routerLink="/restaurant/{{rest.restID}}">
   <div class="module rest">
